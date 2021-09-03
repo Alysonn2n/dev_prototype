@@ -6,6 +6,7 @@ import { Toolbar } from '@material-ui/core';
 import { SvgIcon } from '@material-ui/core';
 import { Bell } from 'react-feather';
 import { Avatar } from '@material-ui/core';
+import authService from '../services/authServices';
 
 const useStyles = makeStyles({
     AppBar: {
@@ -32,6 +33,9 @@ const useStyles = makeStyles({
 });
 const Header = () => {
     const classes = useStyles();
+    const user = authService.getUser();
+    console.log(user)
+
     return(
         <AppBar position='fixed' color='inherit' className={classes.AppBar}>
                 <Toolbar>
@@ -44,7 +48,7 @@ const Header = () => {
                         <SvgIcon className= {classes.bell}>
                             <Bell></Bell>
                         </SvgIcon>
-                        <Avatar alt='Remy Sharp' src='/'></Avatar>
+                        <Avatar alt='Remy Sharp' src={user && user.avatar}></Avatar>
                     </div>
                     {/* <div>
                         <a href='/'>Conecta-débirus</a>

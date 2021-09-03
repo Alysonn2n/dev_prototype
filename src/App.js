@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import SingIn from './pages/singIn'
 import theme from './theme';
+import GuestRoute from './routes/guestRoutes'
+import './mock'
 
 function App() {
   console.log(window.location.href)
@@ -13,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element= {<Home/>}/>
-          <Route path='/login' element= {<SingIn/>}/>
+          <GuestRoute path='/login' element= {<SingIn/>}/>
           <Route path='*' element={<h1>Page Not Found (404)</h1>}/>
         </Routes>
       </BrowserRouter> 
